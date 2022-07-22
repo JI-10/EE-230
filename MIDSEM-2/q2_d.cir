@@ -1,0 +1,19 @@
+Opamp
+.include lm324.txt
+*assumed that r1/r2=16 
+r1 1 0 9.5
+r2 6 1 151.5
+rg 2 IN 9.8
+rf OUT 2 154.5
+x1 1 2 3 4 OUT LM324
+vcc 3 0 +5v
+vee 4 0 0v
+*on the basis of r1/r2,calculated vref
+vref 6 0 10.3649v
+vin IN 0 
+.dc vin 0 2 0.1v
+.control
+run
+plot v(OUT)
+.endc
+.end

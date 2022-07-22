@@ -1,0 +1,30 @@
+3 opamp circuit
+.include UA741.txt
+r1 5 7 10k
+r2 7 OUT 10k
+r3 6 8 10k
+r4 8 REF 10k
+r5 4 6 10k
+r6 3 5 10k
+r10 3 4 2.21k
+Vcm IN 0 dc 0 
+Vi1 1 IN dc 0 sin(0 0.25 1k 0 0 0)
+Vi2 2 IN dc 0 sin(0 0.25 1k 0 0 180)
+Vref REF 0 0
+x1 1 3 10 11 5 UA741
+vcc1 10 0 +15
+vee1 11 0 -15
+x2 2 4 12 13 6 UA741
+vcc2 12 0 +15
+vee2 13 0 -15
+x3 8 7 14 15 OUT UA741
+vcc3 14 0 +15
+vee3 15 0 -15
+.tran 0.1m 10m
+.control
+run
+plot V(OUT) 
+plot V(1)-V(2)
+.endc
+.end
+

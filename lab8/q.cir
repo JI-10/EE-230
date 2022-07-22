@@ -1,0 +1,36 @@
+LOG OP-AMP
+.include TL084.txt
+.include 1N4148_1.txt
+
+R 2 3 1454
+R1 4 5 1K
+R11 5 7 1K
+R2 0 8 1K
+R3 8 9 14.9k
+X1 1 2 11 10 2 TL084
+X2 0 3 13 12 4 TL084
+X3 6 5 15 14 7 TL084
+X4 7 8 17 16 9 TL084
+
+vcc1 11 0 15
+vee1 10 0 -15
+vcc2 13 0 15
+vee2 12 0 -15
+vcc3 15 0 15
+vee3 14 0 -15
+vcc4 17 0 15
+vee4 16 0 -15
+voff 6 0 -287.4mV
+
+D5 3 4 1N4148
+
+vin 1 0 dc 1
+
+.dc vin 10m 10 0.1
+.control
+run
+plot V(9) vs ln(V(1))
+.endc
+.end
+
+ 

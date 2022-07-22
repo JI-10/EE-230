@@ -1,0 +1,19 @@
+LAB4 
+.include ua741.txt
+.include zener_12.txt
+r 2 5 50k
+c 2 0 0.01u
+r1 1 0 30k
+r2 5 1 35k
+rd 5 6 1k
+xx2 6 7 ZENER12
+XX3 0 7 ZENER12
+x1 1 2 3 4 5 UA741
+vcc 3 0 +15v
+vee 4 0 -15v
+.tran 1u 10m
+.control 
+run
+plot v(2) v(6)
+.endc
+.end

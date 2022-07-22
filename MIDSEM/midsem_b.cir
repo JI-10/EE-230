@@ -1,0 +1,23 @@
+MTE
+.include ua741.txt
+.include Diode_1N914.txt
+.include zener_1N4732A.txt
+r1 3 6 13.3k
+r2 4 7 13.3k
+x1 1 2 3 4 5 UA741
+xx1 6 5 1N914
+xx2 6 8 1N914
+xx3 5 7 1N914
+xx4 8 7 1N914
+xxx1 8 OUT DI_1N4732A
+xxx2 0 OUT DI_1N4732A
+vcc 3 0 15v
+vee 4 0 -15v
+vin 2 0 
+.dc vin 10v -10v 0.1v
+.dc vin -10v +10v -0.1v
+.control
+run
+plot dc1.v(OUT) dc2.v(OUT)
+.endc
+.end

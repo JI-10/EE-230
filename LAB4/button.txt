@@ -1,0 +1,6 @@
+.SUBCKT button_sw 1 2
+S1 1 2 c 0 b_sw1
+* Initial value, pulsed value, delay time, rise time, fall time, pulse width *
+V1 c 0 pulse(0 10 0.10 0.02 0.02 0.05 100)
+.model b_sw1 sw vt=1 vh=0.2 ron=1 roff=1000MEG
+.ENDS

@@ -1,0 +1,27 @@
+opamp
+.include ua741.txt
+RA 1 IN 4.7k
+CA 1 0 0.1u
+R1 OUT 2 9.1K
+R2 2 0 1K
+X1 1 2 4 5 OUT UA741	
+vcc 4 0 +12v
+vee 5 0 -12v
+vin IN 0 dc 0 ac 1
+.ac dec 10 1 10Meg
+.control
+run
+plot vdb(OUT)
+.endc
+.end
+
+
+
+
+
+
+
+
+
+
+
